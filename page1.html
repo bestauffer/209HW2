@@ -2,18 +2,31 @@
 <html lang="en-us">
     <head>
         <meta charset="utf-8">
-
+        <link rel="stylesheet" href="page1.css">
 
 
 
     </head>
-    <body>
+    <body onload="makeList()">
         <h1>Swap first and last letters</h1>
-            <button onclick="addItems()">Start</button>
+        
+        <p id="myP1" class ="demo">
+        <input type="submit" value="Add Words" onclick="getItems()">
+        </p>
+
+
+            <div id ="myItems"></div>
             
 
 
+            <p id="myP2" class ="flip">
+                <input type="submit" value="Flip Words" onclick=" location.href='page2.html'">
+                </p>   
+
+
+            <script src="SwitchLetters.js"></script>  
+           
             
-        <script src="SwitchLetters.js"></script>
+        
     </body>
 </html>

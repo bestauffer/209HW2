@@ -1,0 +1,12 @@
+.demo {
+    visibility: visible;
+     
+ }
+
+ .flip{
+     visibility: hidden;
+ }
+body {
+
+    background-color: red;
+}
