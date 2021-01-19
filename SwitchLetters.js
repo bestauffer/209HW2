@@ -18,33 +18,29 @@ function getItems(){
     localStorage.setItem('temp', newTemp);
 
     document.getElementById('myP1').classList.toggle('myP1');
-
-
 }
 
 function makeList() {
     
     let newTemp = localStorage.temp;
-    if(newTemp != 0){
-  document.getElementById("myP1").style.visibility = "hidden";
-
+    if(newTemp != 0 && newTemp != null){
+        document.getElementById("myP1").style.visibility = "hidden";
     }
 
 
-let retrieved = localStorage.getItem('itemList');
+    let retrieved = localStorage.getItem('itemList');
+    let itemsLi = JSON.parse(retrieved);
+    let ul = document.createElement('ul');
+    document.getElementById('myItems').appendChild(ul);
+    for(let i = 0; i < itemsLi.length; i++){
+        let li = document.createElement('li');
+        ul.appendChild(li);
+        li.innerHTML = itemsLi[i];
+    }
 
-let itemsLi = JSON.parse(retrieved);
-let ul = document.createElement('ul');
-document.getElementById('myItems').appendChild(ul);
-for(let i = 0; i < itemsLi.length; i++){
-    let li = document.createElement('li');
-    ul.appendChild(li);
-    li.innerHTML = itemsLi[i];
-}
-
-localStorage.setItem('temp', 0);
-localStorage.removeItem('itemList')
-document.getElementById("myP2").style.visibility = "visible";
+    localStorage.setItem('temp', 0);
+    localStorage.removeItem('itemList');
+    document.getElementById("myP2").style.visibility = "visible";
 }
 
 function makeOtherList() {
@@ -59,7 +55,7 @@ function makeOtherList() {
         li.innerHTML = itemsLi[i];
     }
     
-    localStorage.removeItem('switchedLetters')
+    localStorage.removeItem('switchedLetters');
     }
 
 
@@ -67,4 +63,3 @@ function makeOtherList() {
 function oneWord (newWord){ 
     return newWord.charAt(newWord.length - 1) + newWord.substring(1, newWord.length - 1) + newWord.charAt(0); 
 }
-
